@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Block Blast: Multiplayer Mayhem - A competitive multiplayer puzzle game. Clear lines, score points, and compete with friends in real-time!" data-i18n="meta.description">
+    <title data-i18n="meta.title">Block Blast: Multiplayer Mayhem</title>
+    <link rel="stylesheet" href="css/styles-landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav class="nav container">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Block Blast Logo" data-i18n="[alt]nav.logo_alt">
+                <span data-i18n="nav.logo_text">Block Blast</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#gameplay" data-i18n="nav.gameplay">Gameplay</a>
+                <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+            </div>
+            <button class="play-now-btn cta-button" data-i18n="nav.play_now">Play Now</button>
+        </nav>
+        
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1 data-i18n="hero.headline">Compete in Real-Time Puzzle Mayhem!</h1>
+                <p data-i18n="hero.subheadline">Clear lines, score points, and battle friends in this addictive multiplayer puzzle game. The ultimate brain training challenge!</p>
+                <div class="hero-cta">
+                    <button class="cta-button pulse" data-i18n="hero.cta_main">Play Free Now</button>
+                    <button class="cta-button-secondary" data-i18n="hero.cta_secondary">Watch Trailer</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">10M+</div>
+                        <div class="stat-label" data-i18n="hero.stat_players">Players</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label" data-i18n="hero.stat_rating">Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label" data-i18n="hero.stat_daily">Daily Players</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/hero-game.png" alt="Block Blast Gameplay Screenshot" data-i18n="[alt]hero.image_alt">
+                <div class="limited-time-offer">
+                    <div class="offer-text">
+                        <span class="offer-title" data-i18n="hero.offer_title">Limited Time Offer</span>
+                        <span class="offer-discount" data-i18n="hero.offer_discount">50% OFF</span>
+                    </div>
+                    <div class="countdown">
+                        <span id="countdown-timer">23:59:59</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-social-proof container">
+            <div class="trust-badges">
+                <div class="badge">
+                    <img src="img/badge-award.svg" alt="Game Award Winner" data-i18n="[alt]hero.badge1_alt">
+                    <span data-i18n="hero.badge1">Best Puzzle Game 2023</span>
+                </div>
+                <div class="badge">
+                    <img src="img/badge-secure.svg" alt="Secure Payment" data-i18n="[alt]hero.badge2_alt">
+                    <span data-i18n="hero.badge2">Secure Purchase</span>
+                </div>
+                <div class="badge">
+                    <img src="img/badge-guarantee.svg" alt="Money Back Guarantee" data-i18n="[alt]hero.badge3_alt">
+                    <span data-i18n="hero.badge3">30-Day Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 data-i18n="pain.headline">Feel Your Brain Turning to Mush?</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">😴</div>
+                    <h3 data-i18n="pain.card1_title">Bored with Simple Games</h3>
+                    <p data-i18n="pain.card1_text">Most puzzle games become repetitive and fail to challenge your skills after a few days.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🤯</div>
+                    <h3 data-i18n="pain.card2_title">Need Mental Stimulation</h3>
+                    <p data-i18n="pain.card2_text">Without regular brain training, cognitive skills can decline and reaction times slow down.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🏃</div>
+                    <h3 data-i18n="pain.card3_title">Missing Competition</h3>
+                    <p data-i18n="pain.card3_text">Playing against AI isn't thrilling - you need real human opponents to feel genuinely challenged.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">👥</div>
+                    <h3 data-i18n="pain.card4_title">Disconnected Gaming</h3>
+                    <p data-i18n="pain.card4_text">Solo gaming experiences can feel isolating without friends to share your victories and defeats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 data-i18n="features.headline">Block Blast: Exercise Your Brain While Having Fun!</h2>
+            <p class="section-subtitle" data-i18n="features.subheadline">Our multiplayer puzzle game combines strategic thinking with fast-paced competition</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="img/feature-multiplayer.svg" alt="Multiplayer Feature" data-i18n="[alt]features.feature1_alt">
+                    <h3 data-i18n="features.feature1_title">Real-Time Multiplayer</h3>
+                    <p data-i18n="features.feature1_text">Compete against up to 8 players simultaneously in fast-paced matches that test your skills.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/feature-blocks.svg" alt="Unique Blocks Feature" data-i18n="[alt]features.feature2_alt">
+                    <h3 data-i18n="features.feature2_title">Strategic Block Placement</h3>
+                    <p data-i18n="features.feature2_text">Master the art of placing blocks to clear multiple lines and columns for maximum points.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/feature-events.svg" alt="Special Events Feature" data-i18n="[alt]features.feature3_alt">
+                    <h3 data-i18n="features.feature3_title">Special Events</h3>
+                    <p data-i18n="features.feature3_text">Experience unexpected twists with score multipliers, grid shuffles, and rainbow blocks.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/feature-rooms.svg" alt="Game Rooms Feature" data-i18n="[alt]features.feature4_alt">
+                    <h3 data-i18n="features.feature4_title">Custom Game Rooms</h3>
+                    <p data-i18n="features.feature4_text">Create or join rooms with custom settings for time limits and player counts.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/feature-leaderboard.svg" alt="Leaderboard Feature" data-i18n="[alt]features.feature5_alt">
+                    <h3 data-i18n="features.feature5_title">Global Leaderboards</h3>
+                    <p data-i18n="features.feature5_text">Climb the ranks and showcase your puzzle-solving prowess to players worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/feature-stats.svg" alt="Statistics Feature" data-i18n="[alt]features.feature6_alt">
+                    <h3 data-i18n="features.feature6_title">Detailed Statistics</h3>
+                    <p data-i18n="features.feature6_text">Track your progress with comprehensive stats on games played, wins, and high scores.</p>
+                </div>
+            </div>
+            
+            <div class="features-cta">
+                <button class="cta-button" data-i18n="features.cta">Start Playing Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section class="gameplay" id="gameplay">
+        <div class="container">
+            <h2 data-i18n="gameplay.headline">See Block Blast in Action</h2>
+            <p class="section-subtitle" data-i18n="gameplay.subheadline">Watch how exciting multiplayer puzzle battles unfold</p>
+            
+            <div class="gameplay-video">
+                <div class="video-container">
+                    <img src="img/gameplay-video-thumbnail.jpg" alt="Gameplay Video Thumbnail" data-i18n="[alt]gameplay.video_alt">
+                    <div class="play-button">
+                        <svg width="80" height="80" viewBox="0 0 24 24">
+                            <path fill="#fff" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gameplay-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-i18n="gameplay.step1_title">Join a Game Room</h3>
+                        <p data-i18n="gameplay.step1_text">Create your own room or join an existing one. Set time limits and player counts to your preference.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-i18n="gameplay.step2_title">Place Blocks Strategically</h3>
+                        <p data-i18n="gameplay.step2_text">Drag and drop blocks onto your grid. Rotate them to fit perfectly and clear lines for points.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-i18n="gameplay.step3_title">Clear Lines & Score Points</h3>
+                        <p data-i18n="gameplay.step3_text">Complete full rows or columns to clear them and earn points. The more lines cleared at once, the higher your score!</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 data-i18n="gameplay.step4_title">Win the Match</h3>
+                        <p data-i18n="gameplay.step4_text">The player with the highest score when time runs out wins! Compete to be the ultimate Block Blast champion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 data-i18n="testimonials.headline">What Our Players Say</h2>
+            <p class="section-subtitle" data-i18n="testimonials.subheadline">Join thousands of satisfied players already enjoying Block Blast</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.testimonial1_text">"I'm absolutely addicted to Block Blast! The multiplayer aspect makes every game exciting and different. I've improved my reaction time and strategic thinking while having a blast!"</p>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-1.jpg" alt="Sarah M." data-i18n="[alt]testimonials.testimonial1_author_alt">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial1_author">Sarah M.</h4>
+                            <p data-i18n="testimonials.testimonial1_location">New York, USA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.testimonial2_text">"The perfect game to challenge my friends! We've set up regular tournaments and everyone loves the competitive aspect. The special events keep gameplay fresh and exciting."</p>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-2.jpg" alt="David K." data-i18n="[alt]testimonials.testimonial2_author_alt">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial2_author">David K.</h4>
+                            <p data-i18n="testimonials.testimonial2_location">London, UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.testimonial3_text">"I've tried many puzzle games, but Block Blast is by far the most entertaining! The real-time multiplayer makes it incredibly engaging. I find myself coming back to play every day."</p>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-3.jpg" alt="Mei L." data-i18n="[alt]testimonials.testimonial3_author_alt">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial3_author">Mei L.</h4>
+                            <p data-i18n="testimonials.testimonial3_location">Tokyo, Japan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials-stats">
+                <div class="stat">
+                    <div class="stat-number">4.8/5</div>
+                    <div class="stat-label" data-i18n="testimonials.app_store">App Store Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.7/5</div>
+                    <div class="stat-label" data-i18n="testimonials.google_play">Google Play Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label" data-i18n="testimonials.satisfaction">Player Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 data-i18n="pricing.headline">Choose Your Play Style</h2>
+            <p class="section-subtitle" data-i18n="pricing.subheadline">Flexible options to suit every player</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card basic">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.basic_title">Basic</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-period" data-i18n="pricing.free">Free</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.basic_feature1">Access to core gameplay</li>
+                            <li data-i18n="pricing.basic_feature2">Join public game rooms</li>
+                            <li data-i18n="pricing.basic_feature3">Basic statistics tracking</li>
+                            <li data-i18n="pricing.basic_feature4">Standard block styles</li>
+                        </ul>
+                    </div>
+                    <button class="pricing-cta" data-i18n="pricing.basic_cta">Play Free Now</button>
+                </div>
+                
+                <div class="pricing-card premium popular">
+                    <div class="popular-tag" data-i18n="pricing.most_popular">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.premium_title">Premium</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">4</span>
+                            <span class="price-period" data-i18n="pricing.per_month">/month</span>
+                        </div>
+                        <div class="price-discount">
+                            <span class="original-price">$8</span>
+                            <span class="discount-label" data-i18n="pricing.discount">50% OFF</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.premium_feature1">Everything in Basic</li>
+                            <li data-i18n="pricing.premium_feature2">Create custom game rooms</li>
+                            <li data-i18n="pricing.premium_feature3">Unlock all block styles</li>
+                            <li data-i18n="pricing.premium_feature4">Advanced statistics</li>
+                            <li data-i18n="pricing.premium_feature5">No advertisements</li>
+                        </ul>
+                    </div>
+                    <button class="pricing-cta" data-i18n="pricing.premium_cta">Get Premium</button>
+                </div>
+                
+                <div class="pricing-card ultimate">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.ultimate_title">Ultimate</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">9</span>
+                            <span class="price-period" data-i18n="pricing.per_month">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.ultimate_feature1">Everything in Premium</li>
+                            <li data-i18n="pricing.ultimate_feature2">Exclusive ultimate block styles</li>
+                            <li data-i18n="pricing.ultimate_feature3">Priority access to new features</li>
+                            <li data-i18n="pricing.ultimate_feature4">Create tournaments</li>
+                            <li data-i18n="pricing.ultimate_feature5">VIP support</li>
+                        </ul>
+                    </div>
+                    <button class="pricing-cta" data-i18n="pricing.ultimate_cta">Go Ultimate</button>
+                </div>
+            </div>
+            
+            <div class="guarantee">
+                <img src="img/guarantee-badge.svg" alt="30-Day Money Back Guarantee" data-i18n="[alt]pricing.guarantee_alt">
+                <p data-i18n="pricing.guarantee_text">30-Day Money Back Guarantee. Not satisfied? Get a full refund, no questions asked!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 data-i18n="final_cta.headline">Ready to Challenge Your Mind?</h2>
+            <p data-i18n="final_cta.subheadline">Join thousands of players already enjoying Block Blast! Start playing now and see how you rank.</p>
+            
+            <div class="final-cta-buttons">
+                <button class="cta-button pulse" data-i18n="final_cta.main_cta">Play Free Now</button>
+                <div class="limited-offer-tag">
+                    <span data-i18n="final_cta.limited_offer">Limited Time Offer - 50% OFF Premium</span>
+                    <div class="countdown-small">
+                        <span id="countdown-timer-small">23:59:59</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="img/logo.svg" alt="Block Blast Logo" data-i18n="[alt]footer.logo_alt">
+                        <span data-i18n="footer.logo_text">Block Blast</span>
+                    </div>
+                    <p data-i18n="footer.description">Block Blast: Multiplayer Mayhem is the ultimate competitive puzzle game. Challenge your mind while competing against friends in real-time!</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer.quick_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="#features" data-i18n="footer.features">Features</a></li>
+                        <li><a href="#gameplay" data-i18n="footer.gameplay">Gameplay</a></li>
+                        <li><a href="#testimonials" data-i18n="footer.testimonials">Testimonials</a></li>
+                        <li><a href="#pricing" data-i18n="footer.pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
+                        <li><a href="#" data-i18n="footer.contact">Contact Us</a></li>
+                        <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer.terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer.social">Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><img src="img/icon-facebook.svg" alt="Facebook" data-i18n="[alt]footer.facebook"></a>
+                        <a href="#"><img src="img/icon-twitter.svg" alt="Twitter" data-i18n="[alt]footer.twitter"></a>
+                        <a href="#"><img src="img/icon-instagram.svg" alt="Instagram" data-i18n="[alt]footer.instagram"></a>
+                        <a href="#"><img src="img/icon-discord.svg" alt="Discord" data-i18n="[alt]footer.discord"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright" data-i18n="footer.copyright"> 2023 Block Blast. All rights reserved.</p>
+                <div class="language-switcher">
+                    <label for="language-select" data-i18n="footer.language">Language:</label>
+                    <select id="language-select">
+                        <option value="en" data-i18n="footer.lang_en">English</option>
+                        <option value="es" data-i18n="footer.lang_es">Español</option>
+                        <option value="fr" data-i18n="footer.lang_fr">Français</option>
+                        <option value="de" data-i18n="footer.lang_de">Deutsch</option>
+                        <option value="zh" data-i18n="footer.lang_zh">中文</option>
+                        <option value="ja" data-i18n="footer.lang_ja">日本語</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="affiliate-disclaimer" data-i18n="footer.affiliate_disclaimer">
+                This page contains affiliate links. We may receive a commission for purchases made through these links.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+</html>

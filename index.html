@@ -1,132 +1,541 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="keywords" content="mobile, simulator, mobile design, mobile app">
-  <meta name="author" content="Your Name or Company">
-  <meta http-equiv="Content-Language" content="en">
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://www.yourwebsite.com/pc-simulator" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="PC Simulator">
-  <meta property="og:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta property="og:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta property="og:url" content="https://www.yourwebsite.com/pc-simulator">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PC Simulator">
-  <meta name="twitter:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta name="twitter:creator" content="@yourtwitterhandle">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.yourwebsite.com/favicon.ico" type="image/x-icon">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y) {
-      window.clarity=window.clarity||function(){(clarity.q=clarity.q||[]).push(arguments)};
-      clarity('set', 'anonymizeIP', true);
-      i=l.createElement('script');i.async=1;i.src=r;i.type='text/javascript';
-      t=l.getElementsByTagName('script')[0];t.parentNode.insertBefore(i,t);
-    })(document,window,'script','https://www.clarity.ms/tag/XXXXXX');
-  </script>
-
-  <title>PC Simulator</title>
-
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .mobile-container {
-      width: 360px;
-      height: 640px;
-      border: 16px solid black;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* Adjustments for PC */
-    @media (min-width: 768px) {
-      .mobile-container {
-        width: 600px;
-        height: 1000px;
-      }
-
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-container {
-        width: 800px;
-        height: 1400px;
-      }
-
-      .content {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Additional responsiveness for larger screens */
-    @media (min-width: 1200px) {
-      body {
-        justify-content: flex-start;
-      }
-
-      .mobile-container {
-        margin-top: 50px;
-      }
-    }
-  </style>
+  <title>Block Blast: Multiplayer Mayhem</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-addons.css">
 </head>
-
 <body>
-  <div class="mobile-container">
-    <div class="content">
-      <p>Mobile Simulator Screen</p>
-      <p>PC Version: Adjusted for larger screens.</p>
+  <!-- Menu Page -->
+  <div id="menu-page" class="page">
+    <div class="logo-text">Block Blast<br>Multiplayer Mayhem</div>
+    <div class="menu-buttons">
+      <button class="button" data-navigate="room-selection">Play Game</button>
+      <button class="button" data-navigate="tutorial">How to Play</button>
+      <button class="button" data-navigate="statistics">Statistics</button>
+      <button class="button" data-navigate="achievements">Achievements</button>
+      <button class="button" data-navigate="shop">Shop</button>
+      <button class="button" data-navigate="settings">Settings</button>
     </div>
   </div>
-</body>
 
+  <!-- Room Selection Page -->
+  <div id="room-selection-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="room-container">
+      <h2 class="room-title">Select a Room</h2>
+      
+      <div class="room-list-container">
+        <div id="room-list">
+          <!-- Rooms will be added here dynamically -->
+        </div>
+      </div>
+      
+      <div class="create-room-container">
+        <input type="text" id="room-name-input" placeholder="Room Name" maxlength="20">
+        <button id="create-room-button" class="button">Create Room</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Room Lobby Page -->
+  <div id="room-lobby-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="lobby-container">
+      <h2 id="lobby-room-name" class="lobby-title">Room Name</h2>
+      
+      <div class="players-container">
+        <h3>Players</h3>
+        <div id="lobby-players-list">
+          <!-- Players will be added here dynamically -->
+        </div>
+      </div>
+      
+      <div class="lobby-options">
+        <div class="lobby-option">
+          <span>Game Time:</span>
+          <select id="game-time-select">
+            <option value="120">2 Minutes</option>
+            <option value="180">3 Minutes</option>
+            <option value="300">5 Minutes</option>
+          </select>
+        </div>
+        <div class="lobby-option">
+          <span>Players to Start:</span>
+          <select id="player-count-select">
+            <option value="1">1 Player</option>
+            <option value="2" selected>2 Players</option>
+            <option value="4">4 Players</option>
+            <option value="8">8 Players</option>
+          </select>
+        </div>
+      </div>
+      
+      <button id="ready-button" class="button">Ready</button>
+      <div id="game-status" class="game-status">Waiting for players...</div>
+    </div>
+  </div>
+
+  <!-- Game Page -->
+  <div id="game-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div id="game-container">
+      <div id="game-header">
+        <div id="game-title">Block Blast: Multiplayer Mayhem</div>
+        <div id="timer-container">
+          <span id="timer-label">Time:</span>
+          <span id="timer">2:00</span>
+        </div>
+      </div>
+
+      <div id="game-area">
+        <div id="leaderboard">
+          <h3>Leaderboard</h3>
+          <div id="leaderboard-entries"></div>
+        </div>
+        
+        <div id="main-grid-area">
+          <div id="main-grid"></div>
+          <div id="score-display">Score: <span id="player-score">0</span></div>
+        </div>
+        
+        <div id="opponents-area">
+          <h3>Opponents</h3>
+          <div id="opponents-grids"></div>
+        </div>
+      </div>
+
+      <div id="blocks-palette">
+        <div id="next-block"></div>
+      </div>
+      
+      <div id="game-ui">
+        <button id="start-game">Start Game</button>
+        <div id="player-info">
+          <span id="username-display"></span>
+          <img id="avatar-display" src="" alt="Avatar">
+        </div>
+      </div>
+      <div id="rotate-block-button" class="rotate-button">
+        <svg viewBox="0 0 24 24">
+          <path d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Results Page -->
+  <div id="game-results-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="results-container">
+      <h2 class="results-title">Game Results</h2>
+      
+      <div id="winner-display" class="winner-display">
+        <div class="winner-crown">👑</div>
+        <div class="winner-avatar"><img id="winner-avatar-img" src="" alt="Winner"></div>
+        <div id="winner-name" class="winner-name">Winner Name</div>
+        <div id="winner-score" class="winner-score">Score: 1000</div>
+      </div>
+      
+      <div class="results-list-container">
+        <h3>Final Scores</h3>
+        <div id="final-scores-list">
+          <!-- Final scores will be added here dynamically -->
+        </div>
+      </div>
+      
+      <div class="results-buttons">
+        <button class="button" data-navigate="room-selection">New Game</button>
+        <button class="button" data-navigate="menu">Main Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tutorial Page -->
+  <div id="tutorial-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="tutorial-container">
+      <h2 class="tutorial-title">How to Play</h2>
+      
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <span class="step-number">1</span>
+          <div class="step-title">The Basics</div>
+          <div class="step-content">
+            Block Blast is a multiplayer puzzle game where you place blocks on a grid to complete rows and columns. Your goal is to score as many points as possible within the time limit!
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <span class="step-number">2</span>
+          <div class="step-title">Placing Blocks</div>
+          <div class="step-content">
+            Drag a block from the palette at the bottom of the screen and drop it onto the grid. The block must fit entirely within the grid and not overlap with any existing blocks.
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <span class="step-number">3</span>
+          <div class="step-title">Scoring Points</div>
+          <div class="step-content">
+            When you complete a full row or column, it will be cleared from the grid and you'll earn points. The more lines you clear at once, the more points you'll earn!
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <span class="step-number">4</span>
+          <div class="step-title">Multiplayer</div>
+          <div class="step-content">
+            Compete against other players in real-time! The player with the highest score at the end of the time limit wins the match. You can see everyone's progress on the leaderboard.
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <span class="step-number">5</span>
+          <div class="step-title">Special Events</div>
+          <div class="step-content">
+            Keep an eye out for special events that can help or hinder your gameplay! Score multipliers, grid shuffles, and block swaps can all change the course of the game.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Page -->
+  <div id="settings-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="settings-container">
+      <h2 class="settings-title">Settings</h2>
+      
+      <div class="settings-group">
+        <div class="settings-group-title">Audio</div>
+        
+        <div class="settings-option">
+          <span class="option-label">Music</span>
+          <label class="toggle-switch">
+            <input type="checkbox" data-setting="musicEnabled" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">Sound Effects</span>
+          <label class="toggle-switch">
+            <input type="checkbox" data-setting="sfxEnabled" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">Music Volume</span>
+          <input type="range" min="0" max="100" value="50" id="music-volume" class="volume-control">
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">SFX Volume</span>
+          <input type="range" min="0" max="100" value="70" id="sfx-volume" class="volume-control">
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <div class="settings-group-title">Gameplay</div>
+        
+        <div class="settings-option">
+          <span class="option-label">Special Events</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">Show Opponent Grids</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">Vibration</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <div class="settings-group-title">Account</div>
+        
+        <div class="settings-option">
+          <span class="option-label">Notifications</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="settings-option">
+          <span class="option-label">Privacy</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <div class="settings-group-title">Theme</div>
+        <div class="settings-option">
+          <span class="option-label">Theme</span>
+          <select id="theme-select">
+            <option value="dark">Dark Theme</option>
+            <option value="light">Light Theme</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shop Page -->
+  <div id="shop-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="shop-container">
+      <h2 class="shop-title">Shop</h2>
+      
+      <div class="currency-display">
+        <svg class="currency-icon" viewBox="0 0 24 24">
+          <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+        </svg>
+        <span class="currency-amount">1,000</span>
+      </div>
+      
+      <div class="shop-categories">
+        <div class="shop-category active">Blocks</div>
+        <div class="shop-category">Backgrounds</div>
+        <div class="shop-category">Effects</div>
+      </div>
+      
+      <div class="shop-items">
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-blue" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Ice Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">200</span>
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+        
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-red" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Lava Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">200</span>
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+        
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-green" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Toxic Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">200</span>
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+        
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-purple" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Magic Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">300</span>
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+        
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-cyan" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Cloud Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">300</span>
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+        
+        <div class="shop-item">
+          <div class="item-image">
+            <div class="block block-orange" style="width: 50px; height: 50px;"></div>
+          </div>
+          <div class="item-name">Gold Block Set</div>
+          <div class="item-price">
+            <svg class="price-icon" viewBox="0 0 24 24">
+              <path fill="#ffcc00" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+            </svg>
+            <span class="price-amount">500</span>
+          </div>
+          <button class="buy-button owned">Owned</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Page -->
+  <div id="statistics-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="stats-container">
+      <h2 class="stats-title">Your Statistics</h2>
+      
+      <div class="stats-overview">
+        <div class="stats-card">
+          <div class="stats-card-icon">🎮</div>
+          <div class="stats-card-value" id="stats-games-played">0</div>
+          <div class="stats-card-label">Games Played</div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="stats-card-icon">🏆</div>
+          <div class="stats-card-value" id="stats-games-won">0</div>
+          <div class="stats-card-label">Games Won</div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="stats-card-icon">📊</div>
+          <div class="stats-card-value" id="stats-win-rate">0%</div>
+          <div class="stats-card-label">Win Rate</div>
+        </div>
+      </div>
+      
+      <div class="stats-details">
+        <div class="stats-section">
+          <h3 class="stats-section-title">Game Performance</h3>
+          
+          <div class="stats-row">
+            <div class="stats-label">High Score</div>
+            <div class="stats-value" id="stats-high-score">0</div>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stats-label">Average Score</div>
+            <div class="stats-value" id="stats-average-score">0</div>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stats-label">Total Lines Cleared</div>
+            <div class="stats-value" id="stats-total-lines">0</div>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stats-label">Total Blocks Placed</div>
+            <div class="stats-value" id="stats-total-blocks">0</div>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stats-label">Total Play Time</div>
+            <div class="stats-value" id="stats-play-time">0h 0m</div>
+          </div>
+        </div>
+      </div>
+      
+      <button id="reset-stats-button" class="button danger-button">Reset Statistics</button>
+    </div>
+  </div>
+
+  <!-- Achievements Page -->
+  <div id="achievements-page" class="page hidden">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg>
+    </div>
+    
+    <div class="achievements-container">
+      <h2 class="achievements-title">Achievements</h2>
+      
+      <div id="achievements-list" class="achievements-list">
+        <!-- Achievements will be added here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "config": "./config.js",
+        "soundManager": "./soundManager.js",
+        "achievements": "./achievements.js",
+        "statistics": "./statistics.js",
+        "settingsManager": "./settingsManager.js"
+      }
+    }
+  </script>
+  <script src="config.js" type="module"></script>
+  <script src="game.js" type="module"></script>
+</body>
 </html>
